@@ -318,10 +318,11 @@
     var fp = document.getElementById("frictionPressure").value;
     var hydP = document.getElementById("rfTocuPressure").value;
     var fitd = document.getElementById("FITDepth").value;
+    console.log(mw,emw,fp,hydP,fitd)
 
     var result = (emw - mw) * 1.4223 * fitd + fp + hydP;
-    result=floatParse(result);
-
+    console.log(result)
+    
     document.getElementById("FITPressure").innerHTML = result.toFixed(2);
   }
 
