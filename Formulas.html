@@ -315,9 +315,10 @@
     console.log("Clicked Calculate FIT Pressure");
     var mw = document.getElementById("mudWeight4").value;
     var emw = document.getElementById("targetEMW").value;
-    var fp = document.getElementById("frictionPressure").value;
-    var hydP = document.getElementById("rfTocuPressure").value;
     var fitd = document.getElementById("FITDepth").value;
+    var fp = parseInt(document.getElementById("frictionPressure").value);
+    var hydP = parseInt(document.getElementById("rfTocuPressure").value);
+    
     console.log(mw,emw,fp,hydP,fitd)
 
     var result = fp + hydP+ (emw - mw) * 1.4223 * fitd ;
