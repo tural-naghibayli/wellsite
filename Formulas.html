@@ -320,7 +320,7 @@
     var fitd = document.getElementById("FITDepth").value;
     console.log(mw,emw,fp,hydP,fitd)
 
-    var result = ((emw - mw) * 1.4223 * fitd + (fp + hydP)) ;
+    var result = fp + hydP+ (emw - mw) * 1.4223 * fitd ;
     console.log(result)
     
     document.getElementById("FITPressure").innerHTML = result.toFixed(2);
