@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Formulas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="Style.css">
+  <link rel="icon" href="favicon.ico">
+
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="jumbotron">
+      <h1 class="display-4">Useful Formulas at the Well Site</h1>
+
+      <hr class="my-4">
+      <p>Some Useful calculators </p>
+      <a class="btn btn-info btn-lg" href="index.html" role="button">Report</a>
+      <a class="btn btn-success btn-lg" href="Formulas.html" role="button">Formulas</a>
+      <a class="btn btn-warning btn-lg" href="Communication_tips.html" role="button">Communication tips</a>
+      <a class="btn btn-danger btn-lg" href="WellControl.html" role="button">Well Control</a>
+    </div>
+
+    <div class="container">
+
+
+
+      <table>
+        <h3>General Formulas</h3>
+        <hr size="2">
+        <tr>
+
+          <td id="parts">
+            <p id="description">Hydrostatic Pressure</p>
+            <form>
+
+              <input type="number" id="mudWeight1" name="mudWeight" placeholder="sg"><br>
+              <label for="mudWeight">Mud Weight (sg)</label><br>
+              <input type="number" id="TVD" name="TVD" placeholder="m"><br>
+              <label for="TVD">TVD (m)</label><br>
+              <input type="button" class="btn btn-info btn" onclick="calculateHydrostaticPressure();" value="Calculate" />
+              <br>
+              <p id="result">Hydro. Pressure (psi): <span id="hydrostaticPressure"></span></p>
+            </form>
+          </td>
+
+
+          <td id="parts">
+            <p id="description">AREA - Capacity</p>
+            <form>
+              <input type="number" id="OD" name="OD" placeholder="OD inch"><br>
+              <label for="OD">OD (inch)</label><br>
+              <input type="number" id="ID" name="ID" placeholder="ID inch"><br>
+              <label for="ID">ID (inch)</label><br>
+              <input type="button" class="btn btn-info btn" onclick="calculateAreaCapacity();" value="Calculate" />
+              <br>
+              <p id="result">Capacity (bbl/m): <span id="capacity"></span></p>
+              <p id="result">CE Displacement (bbl/m): <span id="closeEndDisplacement"></span></p>
+              <p id="result">Metal Dis-plcmt (bbl/m): <span id="metalDisplacement"></span></p>
+              <p id="result">Internal Area (inch <sup>2</sup>): <span id="internalArea"></span></p>
+              <p id="result">Cross Sec. Area (inch <sup>2</sup>): <span id="crossSectionalArea"></span></p>
+            </form>
+          </td>
+
+          <td id="parts">
+            <p id="description">Volume</p>
+            <form>
+              <input type="number" min="0" id="capacity1" name="capacity1" placeholder="bbl/m"><br>
+              <label for="capacity">Capacity (bbl/m)</label><br>
+              <input type="number" min="0" id="topMD" name="topMD" placeholder="Top MD m"><br>
+              <label for="topMD">Top MD (m)</label><br>
+              <input type="number" min="0" id="bottomMD" name="bottomMD" placeholder="Bottom MD m"><br>
+              <label for="bottomMD">Bottom MD (m)</label><br>
+
+              <input type="button" class="btn btn-info btn" onclick="calculateVolume();" value="Calculate" />
+              <br>
+              <p id="result"> Volume : <span id="volume"></span></p>
+            </form>
+          </td>
+
+          <td id="parts">
+            <p id="description">Return volume after slug pump</p>
+            <form>
+              <input type="number" id="slugWeight" name="slugWeight" placeholder="sg"><br>
+              <label for="slugWeight">Slug Weight (sg)</label><br>
+              <input type="number" id="mudWeight2" name="mudWeight" placeholder="sg"><br>
+              <label for="mudWeight">Mud Weight (sg)</label><br>
+              <input type="number" id="slugVolume" name="slugVolume" placeholder="bbl"><br>
+              <label for="slugVolume">Pumped Slug Volume (bbl)</label><br>
+              <input type="button" class="btn btn-info btn" onclick="calculateReturnVolume();" value="Calculate" />
+              <br>
+
+              <p id="result">Return Volume (bbl): <span id="returnVolume"></span></p>
+            </form>
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td id="parts">
+            <p id="description">Bouyancy Factor</p>
+            <form>
+              <input type="number" id="mudWeight3" name="mudWeight" placeholder="sg"><br>
+              <label for="mudWeight">Mud Weight (sg)</label><br>
+              <input type="button" class="btn btn-info btn" onclick="calculateBouyancyFactor();" value="Calculate" />
+              <br>
+              <p id="result">Bouyancy Factor (bf): <span id="bouyancyFactor"></span></p>
+            </form>
+          </td>
+
+
+          <td id="parts">
+            <p id="description">Compressibility Volume</p>
+            <form>
+              <input type="number" id="systemVolume" name="systemVolume" placeholder="bbls"><br>
+              <label for="systemVolume">System Volume (bbl)</label><br>
+              <input type="number" id="appliedPressure" name="appliedPressure" placeholder="psi"><br>
+              <label for="appliedPressure">Applied Pressure (psi)</label><br>
+              <em><strong>Note:</strong> Compresibility factor: 3*10<sup>-6</sup></em>
+              <input type="button" class="btn btn-info btn" onclick="calculateCompressibility();" value="Calculate" />
+              <br>
+              <p id="result">Compressibility (bbl): <span id="Compressibility"></span></p>
+            </form>
+          </td>
+
+        </tr>
+
+      </table>
+
+
+      <table>
+        <br>
+        <h3>Specific Operations Formulas</h3>
+        <hr size="2">
+
+        <tr>
+
+          <td id="parts2">
+            <p id="description">FIT Pressure Calculator</p>
+            <form>
+              <input type="number" id="mudWeight4" name="mudWeight4" placeholder="MW sg"><br>
+              <label for="mudWeight4">mudWeight (sg)</label><br>
+              <input type="number" id="targetEMW" name="targetEMW" placeholder="Target EMW sg"><br>
+              <label for="targetEMW">Target EMW (sg)</label><br>
+              <input type="number" id="FITDepth" name="FITDepth" placeholder="FIT TVD m"><br>
+              <label for="FITDepth">FIT Depth (m)</label><br>
+              <input type="number" id="frictionPressure" name="frictionPressure" placeholder="Friction psi"><br>
+              <label for="frictionPressure">Friction Pressure (psi)</label><br>
+              <input type="number" id="rfTocuPressure" name="rfTocuPressure" placeholder="hyd. psi"><br>
+              <label for="rfTocuPressure">Rig floor to Cement unit Hydrostatic Pressure (psi)</label><br>
+
+              <input type="button" class="btn btn-info btn" onclick="calculateFITPressure();" value="Calculate" />
+              <br>
+              <p id="result">FIT Pressure (psi): <span id="FITPressure"></span></p>
+            </form>
+          </td>
+
+
+          <td id="parts2">
+            <p id="description">MAASP <br>Max. Allowable Annular Surface Pressure</p>
+            <form>
+              <input type="number" id="mudWeightInAnnulus" name="mudWeightInAnnulus" placeholder="sg"><br>
+              <label for="mudWeightInAnnulus">Mud Weight (sg)</label><br>
+              <input type="number" id="shoeDepth1" name="shoeDepth1" placeholder="m"><br>
+              <label for="shoeDepth1">Shoe Depth TVD (m)</label><br>
+              <input type="number" id="FITResult" name="FITResult" placeholder="FIT result EMW sg"><br>
+              <label for="FITResult"> FIT result at shoe (sg)</label><br>
+
+
+              <input type="button" class="btn btn-info btn" onclick="calculateMAASP();" value="Calculate" />
+              <br>
+              <p id="result"> MAASP (psi): <span id="MAASP"></span></p>
+            </form>
+          </td>
+
+
+
+          <td id="parts2">
+            <p id="description">Inflow Test (open to Atmosphere)</p>
+            <form>
+              <input type="number" id="mudWeight5" name="mudWeight5" placeholder="sg"><br>
+              <label for="mudWeight5">Mud Weight (sg)</label><br>
+              <input type="number" id="baseOilWeight1" name="baseOilWeight1" placeholder="sg"><br>
+              <label for="baseOilWeight1">Base Oil Weight (sg)</label><br>
+              <input type="number" id="targetEMW1" name="targetEMW1" placeholder="sg"><br>
+              <label for="targetEMW1">Target EMW(sg) <em> at test depth</em></label><br>
+              <input type="number" id="inflowTestDepth1" name="inflowTestDepth1" placeholder="m"><br>
+              <label for="inflowTestDepth1">Inflow Test Depth TVD (m)</label><br>
+
+
+              <input type="button" class="btn btn-info btn" onclick="calculateTVDofBaseOil1();" value="Calculate" />
+              <br>
+              <p id="result"> Required TVD length of base oil (m): <span id="TVDofBaseOil1"></span></p>
+            </form>
+          </td>
+
+
+
+          <td id="parts2">
+            <p id="description">Inflow Test (with Pressure BU)</p>
+            <form>
+              <input type="number" id="mudWeight6" name="mudWeight6" placeholder="sg"><br>
+              <label for="mudWeight6">Mud Weight (sg)</label><br>
+              <input type="number" id="baseOilWeight2" name="baseOilWeight1" placeholder="sg"><br>
+              <label for="baseOilWeight2">Base Oil Weight (sg)</label><br>
+              <input type="number" id="targetEMW2" name="targetEMW2" placeholder="sg"><br>
+              <label for="inflowTestDepth2">Inflow Test Depth TVD (m):</label><br>
+              <input type="number" id="inflowTestDepth2" name="inflowTestDepth2" placeholder="m"><br>
+              <label for="targetEMW2">Target EMW(sg) <em> at test depth</em></label><br>
+              <input type="number" id="pressureOnSurface" name="pressureOnSurface" placeholder="psi"><br>
+              <label for="pressureOnSurface"> PBU Pressure on surface(psi)</label><br>
+
+
+              <input type="button" class="btn btn-info btn" onclick="calculateTVDofBaseOil2();" value="Calculate" />
+              <br>
+              <p id="result"> Required TVD length of base oil (m): <span id="TVDofBaseOil2"></span></p>
+            </form>
+          </td>
+
+        </tr>
+</body>
+
+
+</table>
+
+</div>
+
+<hr size="5" noshade>
+
+</html>
+
+
+</div>
+
+<script type="text/javascript">
+  function calculateHydrostaticPressure() {
+    console.log("Clicked Calculate Hydrostatic Pressure");
+    var mw = document.getElementById("mudWeight1").value;
+    var TVD = document.getElementById("TVD").value;
+
+    var result = 1.4223 * mw * TVD;
+
+    document.getElementById("hydrostaticPressure").innerHTML = result.toFixed(2);
+  }
+
+  function calculateAreaCapacity() {
+    console.log("Clicked Calculate Area Capacity");
+    var od = document.getElementById("OD").value;
+    var id = document.getElementById("ID").value;
+
+    if (od > id) {
+      var capacity = id * id / 313.8415;
+      var ced = od * od / 313.8415;
+      var md = ced - capacity;
+      var ia = Math.PI * id * id / 4;
+      var csa = Math.PI * (od * od - id * id) / 4;
+
+      document.getElementById("capacity").innerHTML = capacity.toFixed(3);
+      document.getElementById("closeEndDisplacement").innerHTML = ced.toFixed(3);
+      document.getElementById("metalDisplacement").innerHTML = md.toFixed(3);
+      document.getElementById("internalArea").innerHTML = ia.toFixed(3);
+      document.getElementById("crossSectionalArea").innerHTML = csa.toFixed(3);
+    } else {
+      alert("OD must be larger than ID")
+    }
+  }
+
+  function calculateVolume() {
+    console.log("Clicked Calculate Vol");
+    var top = document.getElementById("topMD").value;
+    var bottom = document.getElementById("bottomMD").value;
+    var cap = document.getElementById("capacity1").value
+
+    var result = Math.abs(top - bottom) * cap;
+
+    document.getElementById("volume").innerHTML = result.toFixed(2);
+  }
+
+  function calculateReturnVolume() {
+    console.log("Clicked Calculate Return Vol");
+    var mw = document.getElementById("mudWeight2").value;
+    var sw = document.getElementById("slugWeight").value;
+    var svol = document.getElementById("slugVolume").value
+
+    var result = (sw / mw - 1) * svol;
+
+    document.getElementById("returnVolume").innerHTML = result.toFixed(2);
+  }
+
+  function calculateBouyancyFactor() {
+    console.log("Clicked Calculate Bouyancy Factor");
+    var mw = document.getElementById("mudWeight3").value;
+    var bf = (65.5 - mw * 8.33) / 65.5;
+
+    document.getElementById("bouyancyFactor").innerHTML = bf.toFixed(2);
+  }
+
+  function calculateCompressibility() {
+    console.log("Clicked Calculate Compressibility");
+    var vol = document.getElementById("systemVolume").value;
+    var pres = document.getElementById("appliedPressure").value;
+
+    var result = vol * pres * 3 / 1000000;
+
+    document.getElementById("Compressibility").innerHTML = result.toFixed(2);
+  }
+
+
+  function calculateFITPressure() {
+    console.log("Clicked Calculate FIT Pressure");
+    var mw = document.getElementById("mudWeight4").value;
+    var emw = document.getElementById("targetEMW").value;
+    var fitd = document.getElementById("FITDepth").value;
+    var fp = parseInt(document.getElementById("frictionPressure").value);
+    var hydP = parseInt(document.getElementById("rfTocuPressure").value);
+
+    console.log(mw,emw,fp,hydP,fitd)
+
+    var result = fp + hydP+ (emw - mw) * 1.4223 * fitd ;
+    console.log(result)
+
+    document.getElementById("FITPressure").innerHTML = result.toFixed(2);
+  }
+
+  function calculateMAASP() {
+    console.log("Clicked Calculate MAASP");
+    var mw = document.getElementById("mudWeightInAnnulus").value;
+    var sd = document.getElementById("shoeDepth1").value;
+    var FITres = document.getElementById("FITResult").value;
+
+    // FITres * 1.4223*sd = MAASP + mw*1.4223*sd
+    var result = FITres * 1.4223 * sd - mw * 1.4223 * sd;
+
+    document.getElementById("MAASP").innerHTML = result.toFixed(2);
+
+    if (result >= testdepth) {
+      alert("!!! Note: Base oil length exceeds test depth")
+    }
+
+  }
+
+  function calculateTVDofBaseOil1() {
+    console.log("Clicked Calculate Inflow test");
+    var mw = document.getElementById("mudWeight5").value;
+    var bow = document.getElementById("baseOilWeight1").value;
+    var testemw = document.getElementById("targetEMW1").value;
+    var testdepth = document.getElementById("inflowTestDepth1").value;
+
+    // testemw*testdepth*1.4223 = (testdepth-result)*mw*1.4223 +result*bow*1.4223
+    // testemw*testdepth = (testdepth-result)*mw + result*bow
+    // testdepth*(testemw-mw) = result*(bow-mw)
+    // result = testdepth*(testemw-mw)/(bow-mw)
+    var result = testdepth * (testemw - mw) / (bow - mw);
+
+    document.getElementById("TVDofBaseOil1").innerHTML = result.toFixed(2);
+
+    if (result >= testdepth) {
+      alert("!!! Note: Base oil length exceeds test depth")
+    }
+
+  }
+
+
+  function calculateTVDofBaseOil2() {
+    console.log("Clicked Calculate Inflow test 2");
+    var mw = document.getElementById("mudWeight6").value;
+    var bow = document.getElementById("baseOilWeight2").value;
+    var testemw = document.getElementById("targetEMW2").value;
+    var testdepth = document.getElementById("inflowTestDepth2").value;
+    var surpressure = document.getElementById("pressureOnSurface").value;
+
+
+    // testemw*testdepth*1.4223 = (testdepth-result)*mw*1.4223 +result*bow*1.4223 + surpressure
+    // testdepth*(testemw-mw)*1.4223 = result*(bow-mw)*1.4223 + surpressure
+    // result = (testdepth*(testemw-mw)*1.4223-surpressure)/((bow-mw)*1.4223)
+    var result = (testdepth * (testemw - mw) * 1.4223 - surpressure) / ((bow - mw) * 1.4223);
+    document.getElementById("TVDofBaseOil2").innerHTML = result.toFixed(2);
+
+    if (result >= testdepth) {
+      alert("!!! Note: Base oil length exceeds test depth")
+    }
+
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
