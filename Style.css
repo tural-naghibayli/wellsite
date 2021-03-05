@@ -44,13 +44,13 @@ margin-bottom: 3%;
 }
 
 table {
-  border-spacing: 10px;
+ border-spacing: 10px;
  border-collapse: separate;
 }
 
 #parts{
   border: 1px solid blue;
-  background-color: #BEC9C2 ;
+  background-color: #AFC1B9 ;
   padding: 10px;
   padding-top: 10px;
   vertical-align: baseline;
@@ -63,7 +63,6 @@ table {
   padding-top: 10px;
   vertical-align: baseline;
 }
-
 
 #description{
   font: italic bold 18px Arial, serif;
