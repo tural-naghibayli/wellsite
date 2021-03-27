@@ -1,0 +1,113 @@
+/* REPORT */
+
+#report{
+  border: 5px solid blue;
+  background-color: gray;
+  color: white;
+  margin-left: auto;
+  margin-bottom: 3%;
+  border-radius: 10%;
+  font-style: arial;
+  padding: 3%
+}
+
+#report {white-space:pre-wrap;}
+
+#copy{
+margin-bottom: 3%;
+}
+
+.bottom{
+  text-align: center;
+}
+
+#colhead{
+  color: #216353;
+  font-size: 1.2em;
+}
+
+/* FORMULAS */
+
+#result{
+  height: auto;
+  width: 260px;
+  border: 5px solid blue;
+  margin-top: 5%;
+  color: blue;
+  border-radius: 15%;
+  font: italic bold 15px Arial, serif;
+  padding: 4px;
+}
+
+#description{
+  font: bold 16px arial;
+}
+
+table {
+ border-spacing: 10px;
+ border-collapse: separate;
+ align-self: center;
+
+}
+
+#parts{
+  border: 1px solid blue;
+  background-color: #AFC1B9 ;
+  padding: 10px;
+  padding-top: 10px;
+  vertical-align: baseline;
+}
+
+#parts2{
+  border: 1px solid red;
+  background-color: #f0d2bd ;
+  padding: 10px;
+  padding-top: 10px;
+  vertical-align: baseline;
+}
+
+#description{
+  font: italic bold 18px Arial, serif;
+}
+
+
+/* COMMUNUCATION */
+
+h2 {
+  color: #00416d;
+}
+
+#safetyImg{
+  position: relative;
+  float: right;
+}
+
+#questionImg{
+  position: relative;
+  float: right;
+  height: 250px;
+  width: 250px;
+}
+
+#difficultImg{
+  position: relative;
+  float: right;
+  height: 250px;
+  width: 250px;
+}
+
+#youtubeVideo{
+  margin:5px;
+  border: 1px solid blue;
+}
+
+#hrBelowh2{
+
+  height: 5px;
+  background-color: green;
+}
+
+
+img {
+  border: 1px solid gray;
+}
